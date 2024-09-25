@@ -46,7 +46,7 @@ fi
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
 	# Copy the file to install biglinux to the desktop and configure permissions
-	homeBigDesk="/home/biglinux/Desktop"
+	homeBigDesk="$HOME/Desktop"
 	cfile='calamares-biglinux.desktop'
 	if [ ! -d "$homeBigDesk" ]; then
 		mkdir -p "$homeBigDesk"

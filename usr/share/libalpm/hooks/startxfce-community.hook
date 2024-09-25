@@ -8,4 +8,4 @@ Target = usr/bin/startxfce-community
 [Action]
 Description = Add startxfce-community in startxfce4
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/startxfce-community.sh
+Exec = /usr/share/libalpm/scripts/startxfce-community
