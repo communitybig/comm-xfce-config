@@ -61,4 +61,7 @@ if [ -e /usr/bin/startbiglive ]; then
 	# Set metadata using gio
 	gio set $homeBigDesk/$cfile metadata::xfce-exe-checksum "$checksum"
 	gio set $homeBigDesk/$cfile metadata::trusted true
+	
+	# Updates user directories
+    xdg-user-dirs-update
 fi
