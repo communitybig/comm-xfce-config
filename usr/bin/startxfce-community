@@ -62,6 +62,8 @@ if [ -e /usr/bin/startbiglive ]; then
 	gio set $homeBigDesk/$cfile metadata::xfce-exe-checksum "$checksum"
 	gio set $homeBigDesk/$cfile metadata::trusted true
 	
-	# Updates user directories
-    xdg-user-dirs-update
+	# Forces the update of user directories without asking
+	LANG=$LANG xdg-user-dirs-update --force
+	# Disables the prompt about updating directories
+	echo "enabled=false" > "$HOME/.config/user-dirs.conf"
 fi
