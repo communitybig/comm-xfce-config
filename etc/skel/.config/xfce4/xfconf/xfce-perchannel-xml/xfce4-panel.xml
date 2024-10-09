@@ -50,7 +50,7 @@
       <property name="launcher-show-description" type="bool" value="false"/>
       <property name="menu-height" type="int" value="650"/>
       <property name="menu-opacity" type="int" value="99"/>
-      <property name="menu-width" type="int" value="800"/>
+      <property name="menu-width" type="int" value="980"/>
       <property name="position-commands-alternate" type="bool" value="false"/>
       <property name="position-search-alternate" type="bool" value="false"/>
       <property name="recent" type="array">
