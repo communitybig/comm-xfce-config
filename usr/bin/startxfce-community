@@ -2,7 +2,7 @@
 
 # Defining the default visual style to be used in applications that use Qt
 export QT_STYLE_OVERRIDE=kvantum
-export QT_QPA_PLATFORMTHEME=xfce
+export QT_QPA_PLATFORMTHEME=kde
 export QT_WAYLAND_DECORATION=adwaita
 
 # Check system theme to apply if the QT theme is clade or dark
