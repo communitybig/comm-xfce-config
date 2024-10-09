@@ -5,6 +5,15 @@ export QT_STYLE_OVERRIDE=kvantum
 export QT_QPA_PLATFORMTHEME=kde
 export QT_WAYLAND_DECORATION=adwaita
 
+
+# Render loop basic if using software render and change GTK4 from vulkan to gl
+if vulkaninfo --summary 2> /dev/null | grep 'deviceName' | grep -vq 'llvmpipe'; then
+    export QSG_RENDER_LOOP=""
+else
+    export QSG_RENDER_LOOP="basic"
+    export GSK_RENDERER="gl"
+fi
+
 # Check system theme to apply if the QT theme is clade or dark
 /usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh
 
