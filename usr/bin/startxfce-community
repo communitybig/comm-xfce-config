@@ -54,16 +54,6 @@ fi
 
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
-	# Remove switch user
-	xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
-
-	# Disable screen lock
-	xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
-	xset s off -dpms
-	
-	# Remove the lock screen button
-	xfconf-query -c xfce4-panel -p $(xfconf-query -c xfce4-panel -l | grep show-command-lockscreen) -s false
-	
 	# Copy the file to install biglinux to the desktop and configure permissions
 	homeBigDesk="$HOME/Desktop"
 	cfile='calamares-biglinux.desktop'
@@ -86,4 +76,13 @@ if [ -e /usr/bin/startbiglive ]; then
 	LANG=$LANG xdg-user-dirs-update --force
 	# Disables the prompt about updating directories
 	echo "enabled=false" > "$HOME/.config/user-dirs.conf"
+	
+	# Remove switch user
+	xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
+
+	# Disable screen lock
+	xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
+
+	# Remove the lock screen button
+	xfconf-query -c xfce4-panel -p $(xfconf-query -c xfce4-panel -l | grep show-command-lockscreen) -s false
 fi
