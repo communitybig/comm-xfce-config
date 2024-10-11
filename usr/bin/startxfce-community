@@ -52,6 +52,9 @@ if [ ! -f "$controlFile" ]; then
     /usr/local/bin/thunar-actions-translated.sh
 fi
 
+# Remove switch user
+xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
+
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
 	# Copy the file to install biglinux to the desktop and configure permissions
