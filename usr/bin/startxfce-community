@@ -52,11 +52,14 @@ if [ ! -f "$controlFile" ]; then
     /usr/local/bin/thunar-actions-translated.sh
 fi
 
-# Remove switch user
-xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
-
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
+	# Remove switch user
+	xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
+
+	# Disable screen lock
+	xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
+	
 	# Copy the file to install biglinux to the desktop and configure permissions
 	homeBigDesk="$HOME/Desktop"
 	cfile='calamares-biglinux.desktop'
@@ -73,6 +76,7 @@ if [ -e /usr/bin/startbiglive ]; then
 	# Set metadata using gio
 	gio set $homeBigDesk/$cfile metadata::xfce-exe-checksum "$checksum"
 	gio set $homeBigDesk/$cfile metadata::trusted true
+	
 	
 	# Forces the update of user directories without asking
 	LANG=$LANG xdg-user-dirs-update --force
