@@ -54,9 +54,10 @@ fi
 
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
-	# Copy the file to install biglinux to the desktop and configure permissions
-	homeBigDesk="$HOME/Desktop"
+	# Get the correct path for the Desktop, regardless of language
+	homeBigDesk=$(xdg-user-dir DESKTOP)
 	cfile='calamares-biglinux.desktop'
+
 	if [ ! -d "$homeBigDesk" ]; then
 		mkdir -p "$homeBigDesk"
 	fi
@@ -65,11 +66,11 @@ if [ -e /usr/bin/startbiglive ]; then
 	chmod +x "$homeBigDesk/$cfile"
 
 	# Generate the SHA256sum of the file on each boot
-	checksum=$(sha256sum $homeBigDesk/$cfile | awk '{print $1}')
+	checksum=$(sha256sum "$homeBigDesk/$cfile" | awk '{print $1}')
 
 	# Set metadata using gio
-	gio set $homeBigDesk/$cfile metadata::xfce-exe-checksum "$checksum"
-	gio set $homeBigDesk/$cfile metadata::trusted true
+	gio set "$homeBigDesk/$cfile" metadata::xfce-exe-checksum "$checksum"
+	gio set "$homeBigDesk/$cfile" metadata::trusted true
 	
 	
 	# Forces the update of user directories without asking
