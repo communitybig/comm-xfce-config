@@ -1,46 +1,48 @@
 #!/bin/sh
 
 # Defining the default visual style to be used in applications that use Qt
-export QT_STYLE_OVERRIDE=kvantum
-export QT_QPA_PLATFORMTHEME=kde
-export QT_WAYLAND_DECORATION=adwaita
+[[ -z $QT_STYLE_OVERRIDE ]] && export QT_STYLE_OVERRIDE="kvantum"
+[[ -z $QT_QPA_PLATFORMTHEME ]] && export QT_QPA_PLATFORMTHEME="kde"
+[[ -z $QT_WAYLAND_DECORATION ]] && export QT_WAYLAND_DECORATION="adwaita"
 
-
-# Render loop basic if using software render and change GTK4 from vulkan to gl
+# Render loop basic if using software render and change GTK4 from vulkan to ngl
 if vulkaninfo --summary 2> /dev/null | grep 'deviceName' | grep -vq 'llvmpipe'; then
-    export QSG_RENDER_LOOP=""
+    unset QSG_RENDER_LOOP
+    # Temporarily forcing GTK Renderer GL since 2024/10/11
+    [[ -z $GSK_RENDERER ]] && export GSK_RENDERER="vulkan"
 else
     export QSG_RENDER_LOOP="basic"
-    export GSK_RENDERER="gl"
+    [[ -z $GSK_RENDERER ]] && export GSK_RENDERER="ngl"
 fi
+
 
 # Check system theme to apply if the QT theme is clade or dark
 /usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh
 
 # Force language
 if [ "$LANGUAGE" = "" ]; then
-	export LANGUAGE=$LANG
+    [[ -z $LANGUAGE ]] && export LANGUAGE=$LANG
 fi
 
 # Checks if the shell has already been changed
 if [ ! -f "$HOME/.biglinux-shell-changed" ]; then
-	biglinux-change-default-shell bash-power
-	touch "$HOME/.biglinux-shell-changed"
+    biglinux-change-default-shell bash-power
+    touch "$HOME/.biglinux-shell-changed"
 fi
 
 #Faster AMD GPU
-export RADV_PERFTEST=sam,nggc,ext_ms
+[[ -z $RADV_PERFTEST ]] && export RADV_PERFTEST="sam,nggc,ext_ms"
 
 #OBS Studio game capture with vulkan
 if [ -e "/usr/bin/obs-vkcapture" ]; then
-	export OBS_USE_EGL=1
-	export OBS_VKCAPTURE=1
-	export VK_INSTANCE_LAYERS=VK_LAYER_OBS_vkcapture_64:VK_LAYER_VALVE_steam_overlay_64 #Fix MangoHUD overlay
+    [[ -z $OBS_USE_EGL ]] && export OBS_USE_EGL=1
+    [[ -z $OBS_VKCAPTURE ]] && export OBS_VKCAPTURE=1
+    [[ -z $VK_INSTANCE_LAYERS ]] && export VK_INSTANCE_LAYERS="VK_LAYER_OBS_vkcapture_64:VK_LAYER_VALVE_steam_overlay_64" #Fix MangoHUD overlay
 fi
 
 #Keyboard LED
 if [ -e "$HOME/.config/ledkeyboard" ]; then
-	change-keyboard-led on
+    change-keyboard-led on
 fi
 
 # Path to the control file
@@ -54,36 +56,35 @@ fi
 
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
-	# Get the correct path for the Desktop, regardless of language
-	homeBigDesk=$(xdg-user-dir DESKTOP)
-	cfile='calamares-biglinux.desktop'
+    # Get the correct path for the Desktop, regardless of language
+    homeBigDesk=$(xdg-user-dir DESKTOP)
+    cfile='calamares-biglinux.desktop'
 
-	if [ ! -d "$homeBigDesk" ]; then
-		mkdir -p "$homeBigDesk"
-	fi
+    if [ ! -d "$homeBigDesk" ]; then
+        mkdir -p "$homeBigDesk"
+    fi
 
-	cp -f /usr/share/applications/$cfile "$homeBigDesk/"
-	chmod +x "$homeBigDesk/$cfile"
+    cp -f /usr/share/applications/$cfile "$homeBigDesk/"
+    chmod +x "$homeBigDesk/$cfile"
 
-	# Generate the SHA256sum of the file on each boot
-	checksum=$(sha256sum "$homeBigDesk/$cfile" | awk '{print $1}')
+    # Generate the SHA256sum of the file on each boot
+    checksum=$(sha256sum "$homeBigDesk/$cfile" | awk '{print $1}')
 
-	# Set metadata using gio
-	gio set "$homeBigDesk/$cfile" metadata::xfce-exe-checksum "$checksum"
-	gio set "$homeBigDesk/$cfile" metadata::trusted true
-	
-	
-	# Forces the update of user directories without asking
-	LANG=$LANG xdg-user-dirs-update --force
-	# Disables the prompt about updating directories
-	echo "enabled=false" > "$HOME/.config/user-dirs.conf"
-	
-	# Remove switch user
-	xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
+    # Set metadata using gio
+    gio set "$homeBigDesk/$cfile" metadata::xfce-exe-checksum "$checksum"
+    gio set "$homeBigDesk/$cfile" metadata::trusted true
 
-	# Disable screen lock
-	xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
+    # Forces the update of user directories without asking
+    LANG=$LANG xdg-user-dirs-update --force
+    # Disables the prompt about updating directories
+    echo "enabled=false" > "$HOME/.config/user-dirs.conf"
 
-	# Remove the lock screen button
-	xfconf-query -c xfce4-panel -p $(xfconf-query -c xfce4-panel -l | grep show-command-lockscreen) -s false
+    # Remove switch user
+    xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
+
+    # Disable screen lock
+    xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
+
+    # Remove the lock screen button
+    xfconf-query -c xfce4-panel -p $(xfconf-query -c xfce4-panel -l | grep show-command-lockscreen) -s false
 fi
