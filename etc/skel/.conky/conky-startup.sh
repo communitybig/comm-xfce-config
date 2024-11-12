@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$DESKTOP_SESSION" = "xfce" ]; then 
+if [ "$DESKTOP_SESSION" = "xfce" ] || [ "$DESKTOP_SESSION" = "livecd" ]; then 
    sleep 2s
    killall conky
    cd "$HOME/.conky/Big-Minimal"
