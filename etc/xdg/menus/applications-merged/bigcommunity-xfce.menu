@@ -3,17 +3,17 @@
   "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
 
 <Menu>
-    <Name>BigCommunity</Name>
+    <Name>Applications</Name>
+
+    <!-- Big Apps Menu -->
     <Menu>
-       <Name>BigCommunity</Name>
+        <Name>Big Apps</Name>
         <Directory>xfce-community.directory</Directory>
-        <Layout>
-            <Merge type="menus" />
-            <Merge type="files" />
-            <Menuname>BigCommunity</Menuname>
-        </Layout>
         <Include>
-            <Category>BigCommunity</Category>
+            <And>
+                <Category>Bigapps</Category>
+            </And>
         </Include>
     </Menu>
+    
 </Menu>
