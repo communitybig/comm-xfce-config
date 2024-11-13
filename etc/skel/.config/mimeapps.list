@@ -13,22 +13,22 @@ application/xhtml+xml=brave-browser.desktop
 application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
 
-# Images (EOG)
-image/apng=eog.desktop
-image/avif=eog.desktop
-image/bmp=eog.desktop
-image/gif=eog.desktop
-image/heif=eog.desktop
-image/jpeg=eog.desktop
-image/jxl=eog.desktop
-image/png=eog.desktop
-image/tiff=eog.desktop
-image/webp=eog.desktop
-image/x-nikon-nef=eog.desktop
-image/x-nikon-nrw=eog.desktop
-image/x-pentax-pef=eog.desktop
-image/svg+xml=eog.desktop
-image/svg+xml-compressed=eog.desktop
+# Images (PIX)
+image/apng=pix.desktop
+image/avif=pix.desktop
+image/bmp=pix.desktop
+image/gif=pix.desktop
+image/heif=pix.desktop
+image/jpeg=pix.desktop
+image/jxl=pix.desktop
+image/png=pix.desktop
+image/tiff=pix.desktop
+image/webp=pix.desktop
+image/x-nikon-nef=pix.desktop
+image/x-nikon-nrw=pix.desktop
+image/x-pentax-pef=pix.desktop
+image/svg+xml=pix.desktop
+image/svg+xml-compressed=pix.desktop
 
 # Texts (Xed)
 text/plain=xed.desktop
@@ -70,6 +70,17 @@ video/mp2t=vlc.desktop
 # PDF and Documents
 application/pdf=org.gnome.Evince.desktop
 
+# Office Documents
+application/msword=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
+application/vnd.ms-powerpoint=libreoffice-impress.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
+
 [Added Associations]
 # Browser Web
 x-scheme-handler/http=brave-browser.desktop
@@ -86,24 +97,24 @@ application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
 
 # Images
-image/apng=eog.desktop;
-image/avif=eog.desktop;
-image/bmp=eog.desktop;
-image/gif=eog.desktop;
-image/heif=eog.desktop;
-image/jpeg=eog.desktop;
-image/jxl=eog.desktop;
-image/png=eog.desktop;
-image/tiff=eog.desktop;
-image/webp=eog.desktop;
-image/x-nikon-nef=eog.desktop;
-image/x-nikon-nrw=eog.desktop;
-image/x-pentax-pef=eog.desktop;
-image/svg+xml=eog.desktop;
-image/svg+xml-compressed=eog.desktop;
+image/apng=pix.desktop;
+image/avif=pix.desktop;
+image/bmp=pix.desktop;
+image/gif=pix.desktop;
+image/heif=pix.desktop;
+image/jpeg=pix.desktop;
+image/jxl=pix.desktop;
+image/png=pix.desktop;
+image/tiff=pix.desktop;
+image/webp=pix.desktop;
+image/x-nikon-nef=pix.desktop;
+image/x-nikon-nrw=pix.desktop;
+image/x-pentax-pef=pix.desktop;
+image/svg+xml=pix.desktop;
+image/svg+xml-compressed=pix.desktop;
 
 # Texts
-text/plain=xed.desktop;libreoffice-writer.desktop;
+text/plain=xed.desktop;
 text/x-todo-txt=xed.desktop;
 text/x-txt2tags=xed.desktop;
 text/x-vhdl=xed.desktop;
@@ -121,8 +132,8 @@ text/x-troff-me=xed.desktop;
 text/x-texinfo=xed.desktop;
 text/x-tex=xed.desktop;
 text/x-systemd-unit=xed.desktop;
-text/x-svsrc=xed.desktop;libreoffice-writer.desktop;
-text/x-svhdr=xed.desktop;libreoffice-writer.desktop;
+text/x-svsrc=xed.desktop;
+text/x-svhdr=xed.desktop;
 text/x-subviewer=xed.desktop;
 text/x-ssa=xed.desktop;
 text/x-setext=xed.desktop;
@@ -140,4 +151,15 @@ video/x-flv=vlc.desktop;
 video/mp2t=vlc.desktop;
 
 # PDF and Documents
-application/pdf=org.gnome.Evince.desktop;libreoffice-draw.desktop;
+application/pdf=org.gnome.Evince.desktop;
+
+# Office Documents
+application/msword=libreoffice-writer.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+application/vnd.ms-excel=libreoffice-calc.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
+application/vnd.ms-powerpoint=libreoffice-impress.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop;
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop;

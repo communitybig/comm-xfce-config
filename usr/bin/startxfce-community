@@ -15,9 +15,21 @@ else
     [[ -z $GSK_RENDERER ]] && export GSK_RENDERER="ngl"
 fi
 
-
 # Check system theme to apply if the QT theme is clade or dark
-/usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh
+if [ -f "/usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh" ]; then
+    # Tenta executar 3 vezes com intervalo de 1 segundo
+    for i in {1..3}; do
+        if /usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh; then
+            logger "sync-gnome-theme-to-qt.sh executed successfully"
+            break
+        else
+            logger "Failed to execute sync-gnome-theme-to-qt.sh, attempt $i"
+            sleep 0.5
+        fi
+    done
+else
+    logger "sync-gnome-theme-to-qt.sh not found"
+fi
 
 # Force language
 if [ "$LANGUAGE" = "" ]; then
