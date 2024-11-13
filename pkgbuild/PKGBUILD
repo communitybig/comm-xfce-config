@@ -1,4 +1,5 @@
 # Maintainer: Tales A. Mendonça <talesam@gmail.com>
+# Contribuitor: Vilmar Catafesta <vcatafesta@gmail.com>
 
 pkgname=comm-xfce-config
 pkgdesc="Package configuration Desktop XFCE"
