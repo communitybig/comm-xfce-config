@@ -31,12 +31,11 @@ image/svg+xml=pix.desktop
 image/svg+xml-compressed=pix.desktop
 
 # Texts (Xed)
-text/plain=xed.desktop
 text/x-todo-txt=xed.desktop
 text/x-txt2tags=xed.desktop
-text/x-vhdl=xed.desktop
-text/x-verilog=xed.desktop
-text/x-vb=xed.desktop
+text/x-vhdl=org.x.editor.desktop
+text/x-verilog=org.x.editor.desktop
+text/x-vb=org.x.editor.desktop
 text/x-vala=xed.desktop
 text/x-uuencode=xed.desktop
 text/x-uri=xed.desktop
@@ -114,29 +113,28 @@ image/svg+xml=pix.desktop;
 image/svg+xml-compressed=pix.desktop;
 
 # Texts
-text/plain=xed.desktop;
-text/x-todo-txt=xed.desktop;
-text/x-txt2tags=xed.desktop;
-text/x-vhdl=xed.desktop;
-text/x-verilog=xed.desktop;
-text/x-vb=xed.desktop;
-text/x-vala=xed.desktop;
-text/x-uuencode=xed.desktop;
-text/x-uri=xed.desktop;
-text/x-uil=xed.desktop;
-text/x-typst=xed.desktop;
-text/x-twig=xed.desktop;
-text/x-troff-ms=xed.desktop;
-text/x-troff-mm=xed.desktop;
-text/x-troff-me=xed.desktop;
-text/x-texinfo=xed.desktop;
-text/x-tex=xed.desktop;
-text/x-systemd-unit=xed.desktop;
-text/x-svsrc=xed.desktop;
-text/x-svhdr=xed.desktop;
-text/x-subviewer=xed.desktop;
-text/x-ssa=xed.desktop;
-text/x-setext=xed.desktop;
+text/x-todo-txt=xed.desktop
+text/x-txt2tags=xed.desktop
+text/x-vhdl=org.x.editor.desktop
+text/x-verilog=org.x.editor.desktop
+text/x-vb=org.x.editor.desktop
+text/x-vala=xed.desktop
+text/x-uuencode=xed.desktop
+text/x-uri=xed.desktop
+text/x-uil=xed.desktop
+text/x-typst=xed.desktop
+text/x-twig=xed.desktop
+text/x-troff-ms=xed.desktop
+text/x-troff-mm=xed.desktop
+text/x-troff-me=xed.desktop
+text/x-texinfo=xed.desktop
+text/x-tex=xed.desktop
+text/x-systemd-unit=xed.desktop
+text/x-svsrc=xed.desktop
+text/x-svhdr=xed.desktop
+text/x-subviewer=xed.desktop
+text/x-ssa=xed.desktop
+text/x-setext=xed.desktop
 
 # Video
 video/mp4=vlc.desktop;
