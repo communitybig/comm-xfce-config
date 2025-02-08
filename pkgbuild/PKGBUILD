@@ -4,10 +4,10 @@
 pkgname=comm-xfce-config
 pkgdesc="Package configuration Desktop XFCE"
 # Uncomment and edit the following lines as needed
-depends=('comm-skel')
+depends=('comm-skel' 'lightdm-slick-greeter')
 #makedepends=('')
 #optdepends=('')
-conflicts=('big-skel' 'bashrc-manjaro')
+conflicts=('big-skel' 'bashrc-manjaro' 'lightdm-webkit2-greeter' 'lightdm-webkit2-theme-community')
 #provides=('')
 #replaces=('')
 pkgver=$(date +%y.%m.%d)
