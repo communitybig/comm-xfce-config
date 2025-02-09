@@ -13,23 +13,8 @@
 
 # Function executed after package installation
 post_install() {
-    [ ! -f "/usr/bin/slick-greeter" ] && {
-        echo "Warning: slick-greeter not found. Configuration ignored."
-        return 1
-    }
-
-    # Checks if the [Seat:*] section exists
-    if grep -q '^\[Seat:\*\]' /etc/lightdm/lightdm.conf; then
-        # Replaces or adds 'greeter-session' within the [Seat:*] section
-        sed -i '/^\[Seat:\*\]/,/^\[/ {
-            /^greeter-session/ s/^.*$/greeter-session=lightdm-slick-greeter/
-            /^greeter-session/! { /^\[Seat:\*\]/ a\greeter-session=lightdm-slick-greeter
-            }
-        }' /etc/lightdm/lightdm.conf
-    else
-        # Adds the complete section if it does not exist
-        echo -e "\n[Seat:*]\ngreeter-session=lightdm-slick-greeter" >> /etc/lightdm/lightdm.conf
-    fi
+    grep -q '^greeter-session=lightdm-slick-greeter$' /etc/lightdm/lightdm.conf && return 0
+    sed -i 's/^greeter-session=.*$/greeter-session=lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
 }
 
 # Function executed before package upgrade
