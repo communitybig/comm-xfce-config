@@ -68,7 +68,7 @@ video/x-flv=vlc.desktop
 video/mp2t=vlc.desktop
 
 # PDF and Documents
-application/pdf=org.gnome.Evince.desktop
+application/pdf=org.gnome.Papers.desktop
 
 # Office Documents
 application/msword=libreoffice-writer.desktop
@@ -255,7 +255,7 @@ video/x-flv=vlc.desktop;
 video/mp2t=vlc.desktop;
 
 # PDF and Documents
-application/pdf=org.gnome.Evince.desktop;
+application/pdf=org.gnome.Papers.desktop;
 
 # Office Documents
 application/msword=libreoffice-writer.desktop;
