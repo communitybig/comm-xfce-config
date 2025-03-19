@@ -186,6 +186,7 @@ message/partial=vim.desktop
 message/news=org.x.editor.desktop
 message/disposition-notification=org.x.editor.desktop
 message/delivery-status=org.x.editor.desktop
+application/x-shellscript=org.x.editor.desktop
 
 [Added Associations]
 # Browser Web
@@ -373,3 +374,4 @@ message/partial=vim.desktop;
 message/news=libreoffice-writer.desktop;org.x.editor.desktop;
 message/disposition-notification=vim.desktop;org.x.editor.desktop;
 message/delivery-status=libreoffice-writer.desktop;org.x.editor.desktop;
+application/x-shellscript=org.x.editor.desktop;
