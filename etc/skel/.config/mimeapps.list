@@ -13,6 +13,11 @@ application/xhtml+xml=brave-browser.desktop
 application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
 
+# XML files (Xed)
+application/xml=xed.desktop
+text/xml=xed.desktop
+application/xml-dtd=xed.desktop
+
 # Images (PIX)
 image/apng=pix.desktop
 image/avif=pix.desktop
@@ -202,6 +207,11 @@ application/x-extension-shtml=brave-browser.desktop
 application/xhtml+xml=brave-browser.desktop
 application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
+
+# XML files
+application/xml=xed.desktop;
+text/xml=xed.desktop;
+application/xml-dtd=xed.desktop;
 
 # Images
 image/apng=pix.desktop;
